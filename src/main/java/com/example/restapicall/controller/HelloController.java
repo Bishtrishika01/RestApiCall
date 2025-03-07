@@ -6,8 +6,8 @@ import org.springframework.web.bind.annotation.*;
 @RequestMapping("/greet") // Base URL: http://localhost:8081/greet
 public class HelloController {
 
-    @GetMapping("/query")
-    public String greetUser(@RequestParam String name) {
+    @GetMapping("/message/{name}")
+    public String welcomeUser(@PathVariable String name) {
         return "Hello, " + name + "! Welcome to BridgeLabz";
     }
 }
