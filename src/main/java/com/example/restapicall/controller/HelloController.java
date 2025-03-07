@@ -1,13 +1,13 @@
 package com.example.restapicall.controller;
-
 import org.springframework.web.bind.annotation.*;
-
-@RestController
-@RequestMapping("/greet") // Base URL: http://localhost:8081/greet
+import com.example.restapicall.bean.User;
+@RestController // Marks this class as a REST controller
+@RequestMapping("/hello") // Base URL: http://localhost:8080/hello
 public class HelloController {
 
-    @GetMapping("/message/{name}")
-    public String welcomeUser(@PathVariable String name) {
-        return "Hello, " + name + "! Welcome to BridgeLabz";
+    // POST request that accepts firstName and lastName in the request body
+    @PostMapping("/post")
+    public String greetUser(@RequestBody User user) {
+        return "Hello, " + user.getFirstName() + " " + user.getLastName() + "! Welcome to BridgeLabz";
     }
 }
